@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "1f64c1a8-a9f1-4c95-b01e-848e691c962b",
+		"name": "DOPC - Yuniki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41531730"
+	},
+	"item": [
+		{
+			"name": "200 OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/delivery-order-price?venue_slug=home-assignment-venue-helsinki&cart_value=1000&user_lat=60.17094&user_lon=24.93087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-order-price"
+					],
+					"query": [
+						{
+							"key": "venue_slug",
+							"value": "home-assignment-venue-helsinki"
+						},
+						{
+							"key": "cart_value",
+							"value": "1000"
+						},
+						{
+							"key": "user_lat",
+							"value": "60.17094"
+						},
+						{
+							"key": "user_lon",
+							"value": "24.93087"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 OK with surcharge fee",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/delivery-order-price?venue_slug=home-assignment-venue-helsinki&cart_value=99&user_lat=60.17094&user_lon=24.93087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-order-price"
+					],
+					"query": [
+						{
+							"key": "venue_slug",
+							"value": "home-assignment-venue-helsinki"
+						},
+						{
+							"key": "cart_value",
+							"value": "99"
+						},
+						{
+							"key": "user_lat",
+							"value": "60.17094"
+						},
+						{
+							"key": "user_lon",
+							"value": "24.93087"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Invalid venue_slug",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/delivery-order-price?venue_slug=home-assignment-venue-invalid&cart_value=1000&user_lat=60.17094&user_lon=24.93087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-order-price"
+					],
+					"query": [
+						{
+							"key": "venue_slug",
+							"value": "home-assignment-venue-invalid"
+						},
+						{
+							"key": "cart_value",
+							"value": "1000"
+						},
+						{
+							"key": "user_lat",
+							"value": "60.17094"
+						},
+						{
+							"key": "user_lon",
+							"value": "24.93087"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Invalid cart_value ",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/delivery-order-price?venue_slug=home-assignment-venue-helsinki&cart_value=-1&user_lat=60.17094&user_lon=24.93087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-order-price"
+					],
+					"query": [
+						{
+							"key": "venue_slug",
+							"value": "home-assignment-venue-helsinki"
+						},
+						{
+							"key": "cart_value",
+							"value": "-1"
+						},
+						{
+							"key": "user_lat",
+							"value": "60.17094"
+						},
+						{
+							"key": "user_lon",
+							"value": "24.93087"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Invalid missing parameter",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/delivery-order-price?venue_slug=home-assignment-venue-helsinki&cart_value=1000&user_lat=&user_lon=24.93087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-order-price"
+					],
+					"query": [
+						{
+							"key": "venue_slug",
+							"value": "home-assignment-venue-helsinki"
+						},
+						{
+							"key": "cart_value",
+							"value": "1000"
+						},
+						{
+							"key": "user_lat",
+							"value": ""
+						},
+						{
+							"key": "user_lon",
+							"value": "24.93087"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 Delivery not possible (user is too far)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/delivery-order-price?venue_slug=home-assignment-venue-helsinki&cart_value=1000&user_lat=90&user_lon=90",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-order-price"
+					],
+					"query": [
+						{
+							"key": "venue_slug",
+							"value": "home-assignment-venue-helsinki"
+						},
+						{
+							"key": "cart_value",
+							"value": "1000"
+						},
+						{
+							"key": "user_lat",
+							"value": "90"
+						},
+						{
+							"key": "user_lon",
+							"value": "90"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
